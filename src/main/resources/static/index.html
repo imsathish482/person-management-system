@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+    <h1>Person Management System</h1>
+    <p>Add, view, update and delete person records</p>
+</header>
+
+<main>
+    <section class="card">
+        <h2 id="formTitle">Add Person</h2>
+
+        <form id="personForm">
+            <input type="hidden" id="personId">
+
+            <label for="name">Full Name</label>
+            <input type="text" id="name" maxlength="100" required>
+
+            <label for="age">Age</label>
+            <input type="number" id="age" min="1" max="120" required>
+
+            <label for="gender">Gender</label>
+            <select id="gender" required>
+                <option value="">Select gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="phoneNumber">Phone Number</label>
+            <input
+                    type="tel"
+                    id="phoneNumber"
+                    pattern="[0-9]{10}"
+                    maxlength="10"
+                    inputmode="numeric"
+                    placeholder="10-digit phone number"
+                    required
+            >
+
+            <div class="form-buttons">
+                <button type="submit" id="submitButton">Save Person</button>
+                <button type="button" id="cancelButton" class="secondary" hidden>
+                    Cancel Edit
+                </button>
+            </div>
+        </form>
+
+        <p id="message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+        <h2>Person Records</h2>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody id="personTableBody"></tbody>
+            </table>
+        </div>
+
+        <p id="emptyMessage">Loading persons...</p>
+    </section>
+</main>
+
+<footer>
+    <p>Person Management System | Spring Boot + MySQL</p>
+</footer>
+
+</body>
+</html>
